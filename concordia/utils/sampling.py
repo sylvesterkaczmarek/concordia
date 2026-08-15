@@ -32,7 +32,7 @@ def extract_choice_response(sample: str) -> str | None:
   if len(sample) == 1:
     # i.e. this would be a sample such as "a"
     return sample
-  elif len(sample) == 2 and sample.endswith(')'):
+  elif re.fullmatch(r'\w\)', sample):
     # i.e. this would be a sample such as "a)"
     return sample[0]
   else:
