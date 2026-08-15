@@ -28,11 +28,11 @@ def _extract_parenthesized_choice(sample: str):
 
 
 def extract_choice_response(sample: str) -> str | None:
-  """Given a sample such as "a", "a)", or "foo(a)bar, return the choice."""
+  """Given a sample such as "a", "a)", or "foo(a)bar", return the choice."""
   if len(sample) == 1:
     # i.e. this would be a sample such as "a"
     return sample
-  elif len(sample) == 2:
+  elif len(sample) == 2 and sample.endswith(')'):
     # i.e. this would be a sample such as "a)"
     return sample[0]
   else:
